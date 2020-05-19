@@ -21,6 +21,7 @@ module.exports =
 
     newPlato: (req, res) =>
     {
+        console.log("[info] ", req)
         db.beginTransaction(function(error)
         {
             if(error)

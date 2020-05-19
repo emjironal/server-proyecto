@@ -21,8 +21,6 @@ module.exports =
 
     newPlato: (req, res) =>
     {
-        console.log("[info] body ", req.body)
-        console.log("[info] query ", req.query)
         db.beginTransaction(function(error)
         {
             if(error)
@@ -34,7 +32,7 @@ module.exports =
             else
             {
                 var insertPlato = "insert into PLATO (NOMBRE, PRECIO) values (?, ?);"
-                var insertPlatoValues = [req.body.nombre, req.body.precio]
+                var insertPlatoValues = [req.query.nombre, req.query.precio]
 
                 db.query(insertPlato, insertPlatoValues, function(err, rows)
                 {
@@ -67,7 +65,7 @@ module.exports =
             else
             {
                 var deletePlato = "delete from PLATO where id = ?;"
-                var deletePlatoValues = [req.body.id]
+                var deletePlatoValues = [req.query.id]
 
                 db.query(deletePlato, deletePlatoValues, function(err, rows)
                 {
@@ -100,7 +98,7 @@ module.exports =
             else
             {
                 var updatePlato = "update PLATO set nombre = ?, precio = ? where id = ?;"
-                var updatePlatoValues = [req.body.nombre, req.body.precio, req.body.id]
+                var updatePlatoValues = [req.query.nombre, req.query.precio, req.query.id]
 
                 db.query(updatePlato, updatePlatoValues, function(err, rows)
                 {

@@ -21,7 +21,8 @@ module.exports =
 
     newPlato: (req, res) =>
     {
-        console.log("[info] ", req)
+        console.log("[info] body ", req.body)
+        console.log("[info] query ", req.query)
         db.beginTransaction(function(error)
         {
             if(error)

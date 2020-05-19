@@ -13,6 +13,7 @@ const db = mysql.createConnection(
     }
 ) //end createConnection
 
+
 db.connect((err) =>
 {
     if (err)

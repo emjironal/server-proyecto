@@ -32,7 +32,7 @@ app.post('/newPlato', newPlato)
 app.post('/deletePlato', deletePlato)
 app.post('/updatePlato', updatePlato)
 
-app.listen(PORT, ()=>
+app.listen(process.env.PORT || PORT, ()=>
 {
     console.log('Server started at: http://localhost:8000')
 }) //end listen
